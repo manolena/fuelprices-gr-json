@@ -7,6 +7,9 @@ on:
   schedule:
     - cron: "20 6,9,12,15 * * 1-6"   # UTC
   workflow_dispatch:                  # "Run workflow" button in the Actions tab
+  push:                               # also when the converter itself changes
+    branches: [main]
+    paths: [convert.py, .github/workflows/update.yml]
 
 permissions:
   contents: write
